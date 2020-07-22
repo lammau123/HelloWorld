@@ -6,7 +6,11 @@ pipeline {
   stages {
     stage('Initialize') {
       steps {
-        bat 'echo Initialzie '
+        bat '''
+             echo Initialzie 
+             echo %PATH%
+             echo %M2_HOME%
+            '''
       }
     }
   }
