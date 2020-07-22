@@ -22,7 +22,7 @@ pipeline {
       steps {
         sshagent('[dev]') {
           steps {
-            bat '"C:\\Program Files\\Git\usr\\bin\\scp.exe" -i "c:\\Users\\tom\\.ssh\\azure\\id_rsa" C:\\Users\\tom\\.jenkins\\workspace\\scp-to-linux\\abc.jar tom@xy.xyz.xy.xz:abc.jar'
+            bat '"C:\\Program Files\\Git\usr\\bin\\scp.exe" -o StrictHostkeyChecking=no target\\*.jar @ubuntu@ip/home/ubuntu/dev/helloworld.jar'
           }
         }
       }
