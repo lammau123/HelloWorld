@@ -20,7 +20,9 @@ pipeline {
     }
     stage ('Deploy to Dev') {
       steps {
-        bat 'echo hello'
+        sshagent (['dev']) {
+          bat 'echo hello'
+        }
       }
     }
   }
