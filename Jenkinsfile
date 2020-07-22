@@ -1,11 +1,11 @@
-pineline{
+pipeline {
   agent any
-  tools{
+  tools {
     maven 'Maven'
   }
-  stages{
-    stage('Initialize'){
-      steps{
+  stages {
+    stage('Initialize') {
+      steps {
         sh '''
           echo "Initialzie."
         '''
