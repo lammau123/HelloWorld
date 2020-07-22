@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage('Initialize') {
       steps {
-        bat ' echo Initialzie '
+        bat 'echo Initialzie '
       }
     }
   }
