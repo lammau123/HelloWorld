@@ -5,11 +5,9 @@ pipeline {
   }
   stages {
     stage('Initialize') {
-      //steps {
-      //  sh '''
-      //    echo "Initialzie."
-      //  '''
-     // }
+      steps {
+        sh ' echo Initialzie '
+      }
     }
   }
 }
