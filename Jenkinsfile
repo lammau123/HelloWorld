@@ -8,7 +8,7 @@ pipeline {
       steps {
         bat '''
              echo Initialzie 
-             set PATH="%PATH%;C:\\Program Files\\Git\usr\\bin"
+             set TEST='Hello'
              echo "PATH = " %PATH%
              echo "M2_HOME = " %M2_HOME%
             '''
