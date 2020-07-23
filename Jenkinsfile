@@ -8,7 +8,7 @@ pipeline {
       steps {
         bat '''
              echo Initialzie 
-             set TEST='Hello'
+             set TEST=%PATH%
              echo "PATH = " %PATH%
              echo "M2_HOME = " %M2_HOME%
             '''
