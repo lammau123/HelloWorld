@@ -22,7 +22,12 @@ pipeline {
       steps {
         sshagent (['dev']) {
           bat 'echo hello'
-          bat 'scp.exe -o StrictHostkeyChecking=no target/*.jar azureuser@52.163.241.54:/home/azureuser/dev/'
+          bat 'scp.exe -o StrictHostkeyChecking=no target/*.jar azureuser@23.101.28.96:/home/azureuser/dev/'
+          bat '''
+              ssh -tt azureuser@23.101.28.96 << EOF
+              java -jar ./dev/*.jar com.helloworld.test.HelloworldApplication
+              exit
+              EOF'''
         }
       }
     }
