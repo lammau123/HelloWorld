@@ -13,6 +13,13 @@ pipeline {
             '''
       }
     }
+    stage ('scan git'){
+      steps {
+        bat 'rm trufflehog || true'
+        bat 'docker run gesellix/trufflehog --json https://github.com/lammau123/HelloWorld.git > trufflehog'
+        bat 'cat trufflehog'
+      }
+    }
     stage ('Build') {
       steps {
         bat 'mvn clean package'
