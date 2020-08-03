@@ -25,6 +25,13 @@ pipeline {
         bat 'mvn clean package'
       }
     }
+    stage ('Create infra') {
+      steps {
+        bat 'terraform init -input=false'
+        bat 'terraform plan -output=tfout -input=false'
+        bat 'terraform apply -input=false tfout -auto-approve'
+      }
+    }
     stage ('Deploy to Dev') {
       steps {
         sshagent (['dev']) {
