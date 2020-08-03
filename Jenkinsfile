@@ -13,7 +13,7 @@ pipeline {
             '''
       }
     }
-    stage ('scan git'){
+ /*   stage ('scan git'){
       steps {
         bat 'rm trufflehog || true'
         bat 'docker run gesellix/trufflehog --json https://github.com/lammau123/HelloWorld.git > trufflehog'
@@ -24,7 +24,7 @@ pipeline {
       steps {
         bat 'mvn clean package'
       }
-    }
+    }*/
     stage ('Create infra') {
       steps {
         bat 'terraform init -input=false'
@@ -32,6 +32,7 @@ pipeline {
         bat 'terraform apply -input=false tfout -auto-approve'
       }
     }
+    /*
     stage ('Deploy to Dev') {
       steps {
         sshagent (['dev']) {
@@ -42,6 +43,6 @@ pipeline {
               '''
         }
       }
-    }
+    }*/
   }
 }
