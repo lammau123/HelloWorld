@@ -28,8 +28,8 @@ pipeline {
     stage ('Create infra') {
       steps {
         bat 'terraform init -input=false'
-        bat 'terraform plan -output=tfout -input=false'
-        bat 'terraform apply -input=false tfout -auto-approve'
+        bat 'terraform plan -output=tfout'
+        bat 'terraform apply tfout -auto-approve'
       }
     }
     /*
