@@ -28,13 +28,10 @@ pipeline {
     stage ('Create infra') {
       steps {
         withCredentials([azureServicePrincipal('714f096c-9d39-46fc-a56c-600b3c7964b9')]) {
-          //bat 'az login --service-principal -u $AZURE_CLIENT_ID -p $AZURE_CLIENT_SECRET -t $AZURE_TENANT_ID'
+          bat 'az login --service-principal -u %AZURE_CLIENT_ID% -p %AZURE_CLIENT_SECRET% -t %AZURE_TENANT_ID%'
          // bat 'terraform init -input=false'
          // bat 'terraform plan -out=tfout -input=false'
          // bat 'terraform apply tfout -auto-approve -input=false'
-          bat 'echo %AZURE_CLIENT_ID%'
-          bat 'echo %AZURE_CLIENT_SECRET%'
-          bat 'echo %AZURE_TENANT_ID%'
         }
       }
     }
