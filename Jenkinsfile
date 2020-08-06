@@ -39,7 +39,7 @@ pipeline {
             echo " AZUre = " %ARM_SUBSCRIPTION_ID%
             terraform init -input=false
             terraform plan -out=tfout -input=false
-            terraform apply tfout -auto-approve -input=false
+            terraform apply tfout -input=false
           '''
         }
       }
