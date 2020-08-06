@@ -6,18 +6,18 @@ pipeline {
   environment {
         DISABLE_AUTH = 'true'
         DB_ENGINE    = 'sqlite'
-        TEST1 = %PATH%
+    TEST1 = ${PATH}
   }
   stages {
     stage('Initialize') {
       steps {
         bat '''
              echo Initialzie 
-             echo "PATH = " %PATH%
+             echo "PATH = " ${PATH}
              echo "M2_HOME = " %M2_HOME%
              echo "DB_ENGINE = " %DB_ENGINE%
             '''
-        echo "DB_ENGINE = " %DB_ENGINE% 
+        echo "DB_ENGINE = " ${DB_ENGINE}
       }
     }
  /*   stage ('scan git'){
