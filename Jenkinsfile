@@ -27,11 +27,12 @@ pipeline {
     }*/
     stage ('Create infra') {
       steps {
-        withCredentials([azureServicePrincipal('714f096c-9d39-46fc-a56c-600b3c7964b9')]) {
+        withCredentials([azureServicePrincipal(credentialsId: '714f096c-9d39-46fc-a56c-600b3c7964b9',
+                                    subscriptionIdVariable: 'ARM_SUBSCRIPTION_ID',
+                                    clientIdVariable: 'ARM_CLIENT_ID',
+                                    clientSecretVariable: 'ARM_CLIENT_SECRET',
+                                    tenantIdVariable: 'ARM_TENANT_ID')]) {
           bat '''
-            set ARM_CLIENT_SECRET = evn.AZURE_CLIENT_SECRET
-            set ARM_TENANT_ID = %AZURE_TENANT_ID%
-            set ARM_SUBSCRIPTION_ID = %AZURE_SUBSCRIPTION_ID%
             echo " AZUre = " %ARM_CLIENT_ID%
             echo " AZUre = " %ARM_TENANT_ID%
             echo " AZUre = " %ARM_CLIENT_SECRET%
