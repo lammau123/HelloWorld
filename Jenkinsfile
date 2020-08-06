@@ -16,7 +16,6 @@ pipeline {
              echo "M2_HOME = " %M2_HOME%
              echo "DB_ENGINE = " %DB_ENGINE%
             '''
-        echo "DB_ENGINE = " %DB_ENGINE%
       }
     }
  /*   stage ('scan git'){
