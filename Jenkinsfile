@@ -29,7 +29,10 @@ pipeline {
       steps {
         withCredentials([azureServicePrincipal('714f096c-9d39-46fc-a56c-600b3c7964b9')]) {
           bat '''
-            az login --service-principal -u %AZURE_CLIENT_ID% -p %AZURE_CLIENT_SECRET% -t %AZURE_TENANT_ID%
+            set ARM_CLIENT_ID = %AZURE_CLIENT_ID% 
+            set ARM_CLIENT_SECRET = %AZURE_CLIENT_SECRET% 
+            set ARM_TENANT_ID = %AZURE_TENANT_ID%
+            set ARM_SUBSCRIPTION_ID = %AZURE_SUBSCRIPTION_ID%
             terraform init -input=false
             terraform plan -out=tfout -input=false
             terraform apply tfout -auto-approve -input=false
