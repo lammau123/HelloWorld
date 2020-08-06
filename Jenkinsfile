@@ -29,7 +29,7 @@ pipeline {
       steps {
         withCredentials([azureServicePrincipal('714f096c-9d39-46fc-a56c-600b3c7964b9')]) {
           environment {
-              ARM_CLIENT_ID = %AZURE_CLIENT_ID% 
+              ARM_CLIENT_ID = 'test'
             }
           bat '''
             set ARM_CLIENT_SECRET = %AZURE_CLIENT_SECRET% 
