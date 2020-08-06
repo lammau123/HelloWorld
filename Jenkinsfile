@@ -33,10 +33,10 @@ pipeline {
             set ARM_CLIENT_SECRET = %AZURE_CLIENT_SECRET% 
             set ARM_TENANT_ID = %AZURE_TENANT_ID%
             set ARM_SUBSCRIPTION_ID = %AZURE_SUBSCRIPTION_ID%
-            echo %ARM_CLIENT_ID%
-            echo %ARM_TENANT_ID%
-            echo %ARM_CLIENT_SECRET%
-            echo %ARM_SUBSCRIPTION_ID%
+            echo " AZUre = " %ARM_CLIENT_ID%
+            echo " AZUre = " %ARM_TENANT_ID%
+            echo " AZUre = " %ARM_CLIENT_SECRET%
+            echo " AZUre = " %ARM_SUBSCRIPTION_ID%
             terraform init -input=false
             terraform plan -out=tfout -input=false
             terraform apply tfout -auto-approve -input=false
