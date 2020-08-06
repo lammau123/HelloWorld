@@ -29,7 +29,7 @@ pipeline {
       steps {
         withCredentials([azureServicePrincipal('714f096c-9d39-46fc-a56c-600b3c7964b9')]) {
           bat '''
-            set ARM_CLIENT_SECRET = %AZURE_CLIENT_SECRET% 
+            set ARM_CLIENT_SECRET = evn.AZURE_CLIENT_SECRET
             set ARM_TENANT_ID = %AZURE_TENANT_ID%
             set ARM_SUBSCRIPTION_ID = %AZURE_SUBSCRIPTION_ID%
             echo " AZUre = " %ARM_CLIENT_ID%
