@@ -10,8 +10,10 @@ pipeline {
              echo Initialzie 
              echo "PATH = " %PATH%
              echo "M2_HOME = " %M2_HOME%
-             set TEST = %PATH%
+             set TEST = "%PATH%"
              echo "TEST = " %TEST%
+             TEST1 = %PATH%
+             echo "TEST1 = " %TEST1%
             '''
       }
     }
