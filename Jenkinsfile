@@ -3,6 +3,11 @@ pipeline {
   tools {
     maven 'Maven'
   }
+  environment {
+        DISABLE_AUTH = 'true'
+        DB_ENGINE    = 'sqlite'
+        TEST1 = %PATH%
+  }
   stages {
     stage('Initialize') {
       steps {
@@ -10,11 +15,9 @@ pipeline {
              echo Initialzie 
              echo "PATH = " %PATH%
              echo "M2_HOME = " %M2_HOME%
-             set TEST = "%PATH%"
-             echo "TEST = " %TEST%
-             TEST1 = %PATH%
-             echo "TEST1 = " %TEST1%
+             echo "DB_ENGINE = " %DB_ENGINE%
             '''
+        echo "DB_ENGINE = " %DB_ENGINE% 
       }
     }
  /*   stage ('scan git'){
