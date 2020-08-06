@@ -3,10 +3,6 @@ pipeline {
   tools {
     maven 'Maven'
   }
-  environment {
-    DISABLE_AUTH = 'true'
-    DB_ENGINE    = 'sqlite'
-  }
   stages {
     stage('Initialize') {
       steps {
@@ -14,7 +10,6 @@ pipeline {
              echo Initialzie 
              echo "PATH = " ${PATH}
              echo "M2_HOME = " %M2_HOME%
-             echo "DB_ENGINE = " %DB_ENGINE%
             '''
       }
     }
@@ -33,8 +28,10 @@ pipeline {
     stage ('Create infra') {
       steps {
         withCredentials([azureServicePrincipal('714f096c-9d39-46fc-a56c-600b3c7964b9')]) {
+          environment {
+              ARM_CLIENT_ID = %AZURE_CLIENT_ID% 
+            }
           bat '''
-            set ARM_CLIENT_ID = %AZURE_CLIENT_ID% 
             set ARM_CLIENT_SECRET = %AZURE_CLIENT_SECRET% 
             set ARM_TENANT_ID = %AZURE_TENANT_ID%
             set ARM_SUBSCRIPTION_ID = %AZURE_SUBSCRIPTION_ID%
