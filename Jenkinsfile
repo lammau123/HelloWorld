@@ -4,9 +4,8 @@ pipeline {
     maven 'Maven'
   }
   environment {
-        DISABLE_AUTH = 'true'
-        DB_ENGINE    = 'sqlite'
-    TEST1 = ${PATH}
+    DISABLE_AUTH = 'true'
+    DB_ENGINE    = 'sqlite'
   }
   stages {
     stage('Initialize') {
@@ -17,7 +16,7 @@ pipeline {
              echo "M2_HOME = " %M2_HOME%
              echo "DB_ENGINE = " %DB_ENGINE%
             '''
-        echo "DB_ENGINE = " ${DB_ENGINE}
+        echo "DB_ENGINE = " %DB_ENGINE%
       }
     }
  /*   stage ('scan git'){
