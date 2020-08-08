@@ -19,12 +19,13 @@ pipeline {
         bat 'docker run gesellix/trufflehog --json https://github.com/lammau123/HelloWorld.git > trufflehog'
         bat 'cat trufflehog'
       }
-    }
+    } */
     stage ('Build') {
       steps {
         bat 'mvn clean package'
       }
-    }*/
+    }
+    /*
     stage ('Create infra') {
       steps {
         withCredentials([azureServicePrincipal(credentialsId: '714f096c-9d39-46fc-a56c-600b3c7964b9',
@@ -43,7 +44,7 @@ pipeline {
           '''
         }
       }
-    }
+    } */
     /*
     stage ('Deploy to Dev') {
       steps {
