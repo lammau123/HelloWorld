@@ -46,17 +46,16 @@ pipeline {
         }
       }
     } */
-    /*
     stage ('Deploy to Dev') {
       steps {
         sshagent (['dev']) {
           sh 'echo hello'
-          sh 'scp.exe -o StrictHostkeyChecking=no target/*.jar azureuser@13.76.41.57:/home/azureuser/dev/'
+          sh 'scp.exe -o StrictHostkeyChecking=no target/*.jar azureuser@168.62.38.1:/home/azureuser/dev/'
           sh '''
-              ssh -tt azureuser@13.76.41.57 < start.sh
+              ssh -tt azureuser@168.62.38.1 < start.sh
               '''
         }
       }
-    }*/
+    }
   }
 }
