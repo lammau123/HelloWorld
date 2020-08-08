@@ -9,6 +9,7 @@ pipeline {
         sh '''
              echo Initialzie 
              echo "PATH = " ${PATH}
+             echo "Test"
              echo "M2_HOME = " ${M2_HOME}
             '''
       }
