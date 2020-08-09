@@ -50,9 +50,9 @@ pipeline {
       steps {
         sshagent (['dev']) {
           sh 'echo hello'
-          sh 'scp -o StrictHostkeyChecking=no target/*.jar azureuser@168.62.38.1:/home/azureuser/dev/'
+          sh 'scp -o StrictHostkeyChecking=no target/*.jar azureuser@52.249.188.66:/home/azureuser/dev/'
           sh '''
-              ssh -tt azureuser@168.62.38.1 < start.sh
+              ssh -tt azureuser@52.249.188.66 < start.sh
               '''
         }
       }
