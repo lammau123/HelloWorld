@@ -27,7 +27,7 @@ pipeline {
 	    sh '''
 	        whoami
 	    	pwd
-	    	bash ./dependency_check.sh
+	    	sudo -u jenkins bash ./dependency_check.sh
 		'''
 	    sh 'cat /var/lib/jenkins/OWASP-Dependency-Check/reports/dependency-check-suppression.xml'
 	  }
