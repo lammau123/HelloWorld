@@ -25,7 +25,7 @@ pipeline {
 	    sh 'rm owasp* || true'
 	    sh 'chmod +x dependency_check.sh'
 	    sh '''
-	        whoami
+	        mkdir test
 	    	pwd
 	    	sudo -u jenkins bash ./dependency_check.sh
 		'''
