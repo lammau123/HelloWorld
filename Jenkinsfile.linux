@@ -23,13 +23,9 @@ pipeline {
   stage ('Dependency checker'){
     steps {
 	    sh 'rm owasp* || true'
-	    sh 'rm report || true'
 	    sh 'chmod +x dependency_check.sh'
 	    sh '''
-	        mkdir report
-		chmod +w report
-	    	pwd
-	    	bash ./dependency_check.sh
+	    	bash dependency_check.sh
 		'''
 	    sh 'cat /var/lib/jenkins/OWASP-Dependency-Check/reports/dependency-check-suppression.xml'
 	  }
