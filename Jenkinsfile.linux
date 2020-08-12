@@ -27,7 +27,7 @@ pipeline {
 	    sh 'rm ./odc-reports/* || true'
 	    sh 'chmod +x dependency_check.sh'
 	    sh 'bash dependency_check.sh'
-	    sh 'cat ./odc-reports/dependency-check-suppression.xml'
+	    sh 'cat ./odc-reports/dependency-check-report.xml'
 	  }
   }
   stage ('Build') {
