@@ -15,9 +15,9 @@ pipeline {
     }
   stage ('scan git'){
       steps {
-        bat 'rm trufflehog || true'
-        bat 'docker run gesellix/trufflehog --json https://github.com/lammau123/HelloWorld.git > trufflehog'
-        bat 'cat trufflehog'
+        sh 'rm trufflehog || true'
+        sh 'docker run gesellix/trufflehog --json https://github.com/lammau123/HelloWorld.git > trufflehog'
+        sh 'cat trufflehog'
       }
   } 
   stage ('Build') {
