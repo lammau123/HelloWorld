@@ -24,7 +24,7 @@ pipeline {
     steps {
 	    sh 'rm owasp* || true'
 	    sh 'chmod +x dependency_check.sh'
-	    sh 'sudo bash dependency_check.sh'
+	    sh 'sudo ./dependency_check.sh'
 	    sh 'cat /var/lib/jenkins/OWASP-Dependency-Check/reports/dependency-check-suppression.xml'
 	  }
   }
