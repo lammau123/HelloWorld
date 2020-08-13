@@ -72,5 +72,10 @@ pipeline {
         }
       }
     }
+    stage ('DAST') {
+    	steps {
+	    sh 'docker run -t owasp/zap2docker-stable zap-baseline.py -t http://52.188.155.23:8080/ || true'
+	}
+    }
   }
 }
